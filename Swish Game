@@ -1,0 +1,55 @@
+To solve the problem, we need to determine the number of rings, 
+𝑁
+N, that could be involved in a game based on the sequence of moves Toofan made. Each test case provides:
+
+𝑀
+M: The number of moves made by Toofan.
+𝐾
+K: The number of swishes needed to win the game.
+A string 
+𝑆
+S of length 
+𝑀
+M representing the sequence of moves.
+The game ends when either:
+
+Toofan has achieved 
+𝐾
+K swishes.
+It becomes impossible to achieve 
+𝐾
+K swishes with the remaining moves.
+
+
+
+answer==>
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int mov, k;
+        cin >> mov >> k;
+        string s;
+        cin >> s;
+        
+        int cnt = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == 'S') {
+                cnt++;
+            }
+        }
+
+        if (cnt >= k) {
+            cout << mov << endl;
+        } else {
+            int diff = k - cnt;
+            cout << mov + diff-1 << endl;
+        }
+    }
+
+    return 0;
+}
